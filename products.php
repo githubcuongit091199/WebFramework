@@ -8,8 +8,10 @@
         $_SESSION['Product']=$product;
 
     }
-    function Out($listProduct)
+    function Out()
     {
+        $listProduct = $_SESSION['Product'];
+   
         foreach($listProduct as $valuepr)
         {
             foreach($valuepr as $value)
@@ -24,9 +26,24 @@
     }
     function add($name,$price)
     {
+  
         $products=$_SESSION['Product'];
-        $product = array($products.l,$name,$price);
-        $product = array_merge($products,$product);
+    
+     
+           
+                // $value=$products[count($products)-1];
+                $id=count($products);
+          
+        echo "id:". $id;
+       
+        $product = array($id,$name,$price);
+        // array_push($products,$product);
+        $products[]=$product;
+        $_SESSION['Product']=$products;
+
+        
+
+        Out();
       
 
     }
